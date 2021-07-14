@@ -3,11 +3,18 @@
     <h1>Home</h1>
 
     <p> <%= homeText %>  </p>
-
-    <% Posts.forEach(post => { %>
+    
+    <form action="/compose" method="GET">
+        <button class="btn btn-primary" type="submit" name="compose" >Compose</button>
+    </form>
+    
+     
+    <% posts.forEach(post => { %>
         
         <h2> <%= post.title %> </h2>
-        <p> <%= post.postDetail.substring(0,100)+ "..." %> <a href="/post/<%= post.title %> ">Read More</a></p> 
+        <p> <%= post.postDetail.substring(0,100)+ "..." %> <a href="/post/<%= post._id %>">Read More</a></p> 
 
     <% }) %>
+
+    
 <%- include("partials/footer"); %> 
